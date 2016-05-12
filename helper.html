@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>handlebars</title>
+</head>
+<body>
+    <h1>另一种Helper用法</h1>
+    <p>
+        小菜刚刚提到过，带options参数的Helper是块级别的，而不带的，相当于行内级别的Helper。<br/>
+        从例子一开始，性别就是用0、1代码表示的，但实际情况下我们需要转换成汉字，transformat这个Helper需要一个参数，根据不同的代码，返回男女，这样调用{{transformat sex}}，其中sex是从当前上下文中读取的性别代码。
+    </p>
+
+     <!--基础html框架-->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody id="tableList"></tbody>
+    </table>
+    <script id="table-template" type="text/x-handlebars-template">
+    {{#each student}}
+        {{#if name}}
+            {{#compare age 20}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{transformat sex}}</td>
+                <td>{{age}}</td>
+            </tr>
+        {{else}}
+            <tr>
+                <td>?</td>
+                <td>?</td>
+                <td>?</td>
+            </tr>
+            {{/compare}}
+        {{/if}}
+    {{/each}}
+    </script>
+
+    <script src="plugin/seajs/sea.js"></script>
+    <script src="js/sea-config.js"></script>
+    <script>
+        seajs.use(['helper']);
+    </script>
+</body>
+</html>

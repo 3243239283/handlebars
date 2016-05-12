@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>handlebars:with-进入到某个属性(进入到某个上下文环境)。</title>
+</head>
+<body>
+    <h1>with-进入到某个属性(进入到某个上下文环境)。</h1>
+
+     <!--基础html框架-->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>兴趣爱好</th>
+            </tr>
+        </thead>
+        <tbody id="tableList"></tbody>
+    </table>
+    <script id="table-template" type="text/x-handlebars-template">
+        {{#each this}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{sex}}</td>
+                <td>{{age}}</td>
+                <td>
+                {{#with favorite}}
+                {{#each this}}
+                    <p>{{name}}</p>
+                {{/each}}
+                {{/with}}
+                </td>
+            </tr>
+        {{/each}}
+    </script>
+
+    <script src="plugin/seajs/sea.js"></script>
+    <script src="js/sea-config.js"></script>
+    <script>
+        seajs.use(['with']);
+    </script>
+</body>
+</html>

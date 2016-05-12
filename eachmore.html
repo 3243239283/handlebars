@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>handlebars:each嵌套</title>
+</head>
+<body>
+    <h1>each嵌套</h1>
+    <!--基础html框架-->
+    <div id="dataList"></div>
+
+    <!--Handlebars.js模版-->
+    <!--Handlebars.js模版放在script标签中，保留了html原有层次结构,模版中要写一些操作语句-->
+    <!--id可以用来唯一确定一个模版,type是模版固定的写法-->
+    <script id="table-template" type="text/x-handlebars-template">
+        {{#each this}}
+            {{#each info}}
+                {{../name}}的{{this}}<br>
+            {{/each}}
+        {{/each}}
+    </script>
+
+    <script src="plugin/seajs/sea.js"></script>
+    <script src="js/sea-config.js"></script>
+    <script>
+        seajs.use(['eachmore']);
+    </script>
+</body>
+</html>
