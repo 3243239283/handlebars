@@ -14,13 +14,12 @@ define(function(require,exprots,moudle){
     });*/
 
 
-    //用jquery获取模板
-    $.getJSON("js/json/laytpl.json",function(data){
+
+    $.getJSON("js/json/each.json",function(data){
         ////注册一个Handlebars模版，通过id找到某一个模版，获取模版的html框架
-        var source   = $("#entry-template").html();
-        var template = handlebars.compile(source);
-        var context = {title: "标题", body: "我是字符串!"}
-        var html= template(context);
+        var myTemplate = Handlebars.compile($("#table-template").html()); 
+        //将json对象用刚刚注册的Handlebars模版封装，得到最终的html，插入到基础table中。
+        $('#tableList').html(myTemplate(data));
     });
 
 

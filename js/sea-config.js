@@ -8,6 +8,7 @@ seajs.config({
         'jquery': 'handlebars/moudle/jquery/jquery',
         'handlebars':'handlebars/moudle/handlebars/lib/handlebars',
         'index': 'handlebars/js/index',
+        'each':'handlebars/js/each',
         'stylecss': 'handlebars/css/style.css'
     }
 });
